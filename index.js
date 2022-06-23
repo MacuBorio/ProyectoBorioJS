@@ -29,7 +29,7 @@ class Hierba {
     const productos = [Hierba1, Hierba2, Hierba3, Hierba4, Hierba5, Hierba6];
 
     for (const Hierba of productos)
-    Hierba.sumaIva();
+    Hierba.Iva();
     
 continuar = confirm("Desea cargar productos?");
 while(continuar === true)
