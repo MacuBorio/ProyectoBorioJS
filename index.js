@@ -68,3 +68,12 @@ while(continuar === true)
 }
 
 alert("El precio total de su compra es: $" + total);
+
+let botonCompra = document.getElementById ('botonCompra')
+botonCompra.textContent = 'Apreta el boton para finalizar la compra'
+botonCompra.style.color = '#04b71c'
+
+
+let button = document.createElement ('button')
+button.textContent= "Finalizar compra"
+document.append(button)
