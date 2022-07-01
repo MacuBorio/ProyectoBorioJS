@@ -1,0 +1,38 @@
+[
+    {
+        "id":"001",
+        "nombre":"Té Verde",
+        "precio":100,
+        "img":"assets/img/te-verde-hebras-web-400x400.jpg"
+    },
+    {
+        "id":"002",
+        "nombre":"Manzanilla",
+        "precio":100,
+        "img":"assets/img/manzanilla-flor-400x400.jpg"
+    },
+    {
+        "id":"003",
+        "nombre":"Cedrón",
+        "precio":100,
+        "img":"assets/img/cedron-400x400.jpg"
+    },
+    {
+        "id":"004",
+        "nombre":"Cola de Caballo",
+        "precio":100,
+        "img":"assets/img/cola-de-caballo-400x400.jpg"
+    },
+    {
+        "id":"005",
+        "nombre":"Melisa",
+        "precio":100,
+        "img":"assets/img/melisa-400x400.jpg"
+    },
+    {
+        "id":"006",
+        "nombre":"Tilo",
+        "precio":100,
+        "img":"assets/img/tilo-web-400x400.jpg"
+    }
+]

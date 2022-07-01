@@ -5,72 +5,26 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>La Apoteca - Infusiones</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-    <script src="./index.js"></script>
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-    <h1 style="color: #04b71c; background-color: rgb(255, 243, 226); height: 50px;text-align: center; ">La Apoteca</h1>
+    <div class="conteinerTitle">
+      <img class=logoApoteca src="assets/img/logo_small.png" alt="">
+      <h1>La Apoteca</h1>
+      <a class='cart' href="carrito.html">
+        <svg class=logoCarrito xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-cart2" viewBox="0 0 16 16">
+          <path d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l1.25 5h8.22l1.25-5H3.14zM5 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z"/>
+        </svg>
+      </a>
+    </div>
     <h2 style="text-align:center ;"> Infusiones hechas a tu medida</h2>
 
-    <div style="display:flex ; flex-flow: row wrap; justify-content: space-evenly;">
-
-        <div class="card" style="width: 18rem; margin: 10px;">
-            <img src="assets/img/te-verde-hebras-web-400x400.jpg" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Té Verde</h5>
-              <p class="card-text">30 gr.</p>
-              <a href="#" class="btn btn-primary">Agregar</a>
-            </div>
-          </div>
-
-          <div class="card" style="width: 18rem; margin: 10px;">
-            <img src="assets/img/manzanilla-flor-400x400.jpg" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Manzanilla</h5>
-              <p class="card-text">30 gr.</p>
-              <a href="#" class="btn btn-primary">Agregar</a>
-            </div>
-          </div>
-
-          <div class="card" style="width: 18rem; margin: 10px;">
-            <img src="assets/img/cedron-400x400.jpg" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Cedrón</h5>
-              <p class="card-text">30 gr.</p>
-              <a href="#" class="btn btn-primary">Agregar</a>
-            </div>
-          </div>
-
-          <div class="card" style="width: 18rem;margin: 10px;">
-            <img src="assets/img/cola-de-caballo-400x400.jpg" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Cola de caballo</h5>
-              <p class="card-text">30 gr.</p>
-              <a href="#" class="btn btn-primary">Agregar</a>
-            </div>
-          </div>
-
-          <div class="card" style="width: 18rem;margin: 10px;">
-            <img src="assets/img/melisa-400x400.jpg" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Melisa</h5>
-              <p class="card-text">30 gr.</p>
-              <a href="#" class="btn btn-primary">Agregar</a>
-            </div>
-          </div>
-
-          <div class="card" style="width: 18rem;margin: 10px;">
-            <img src="assets/img/tilo-web-400x400.jpg" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Tilo</h5>
-              <p class="card-text">30 gr.</p>
-              <a href="#" class="btn btn-primary">Agregar</a>
-            </div>
-          </div>
-
-          <div id="botonCompra"></div>
-          
-        <script src="assets/js/bootstrap.bundle.min.js"></script>
-    </div>
+    <div id="container"></div>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="index.js"></script>
 </body>
 </html>

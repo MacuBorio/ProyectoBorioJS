@@ -1,79 +1,100 @@
-let continuar;
-let hierbas
-let precioHierbas;
-let total = 0;
-let usuario = prompt("Ingresá tu usuario para iniciar sesión")
-while((usuario === "") || (usuario === " ")){
-    usuario = prompt("Ingresá tu usuario nuevamente")
-}
-alert("Bienvenida/o " + usuario + "!");
-
-class Hierba {
-    constructor(nombre, precio) {
-        this.nombre = nombre;
-        this.precio = precio;
-    }
-
-    Iva() {
-        this.precio = this.precio * 1.21;
-        }
-}
-
-    const Hierba1 = new Hierba ("Té Verde", 50);
-    const Hierba2 = new Hierba ("Manzanilla", 20);
-    const Hierba3 = new Hierba ("Cedrón", 10);
-    const Hierba4 = new Hierba ("Cola de Caballo", 75)
-    const Hierba5 = new Hierba ("Melisa", 25);
-    const Hierba6 = new Hierba ("Tilo", 60)
-
-    const productos = [Hierba1, Hierba2, Hierba3, Hierba4, Hierba5, Hierba6];
-
-    for (const Hierba of productos)
-    Hierba.Iva();
-    
-continuar = confirm("Desea cargar productos?");
-while(continuar === true)
-{
-     hierbas = prompt("Elegí las hierbas que quieras agregarle a tu blend:" + "\n" + "1-" + (Hierba1.nombre) + "\n" + "2-" + (Hierba2.nombre) + "\n" + "3-" + (Hierba3.nombre) + "\n" + "4-" + (Hierba4.nombre) + "\n" + "5-" + (Hierba5.nombre) + "\n" + "6-" + (Hierba6.nombre));
-    while(hierbas < 1 || hierbas > 6)
+let hierbas = [
     {
-        alert("Error! Debe ingresar un numero entre 1 y 6.")
-        hierbas = prompt("Elegí las hierbas que quieras agregarle a tu blend:" + "\n" + "1-" + (Hierba1.nombre) + "\n" + "2-" + (Hierba2.nombre) + "\n" + "3-" + (Hierba3.nombre) + "\n" + "4-" + (Hierba4.nombre) + "\n" + "5-" + (Hierba5.nombre) + "\n" + "6-" + (Hierba6.nombre));  
-    }
-
-    alert("Elegiste " + hierbas);
-    switch(hierbas)
+        "id":"001",
+        "nombre":"Té Verde",
+        "precio":100,
+        "img":"assets/img/te-verde-hebras-web-400x400.jpg"
+    },
     {
-        case "1":
-            precioHierbas = (Hierba1.precio);
-        break;
-        case "2":
-            precioHierbas = (Hierba2.precio);
-        break;
-        case "3":
-            precioHierbas = (Hierba3.precio);
-        break;
-        case "4":
-            precioHierbas = (Hierba4.precio);
-        break
-        case "5":
-            precioHierbas = (Hierba5.precio);
-        break;
-        case "6":
-            precioHierbas = (Hierba6.precio);
-        break         
+        "id":"002",
+        "nombre":"Manzanilla",
+        "precio":100,
+        "img":"assets/img/manzanilla-flor-400x400.jpg"
+    },
+    {
+        "id":"003",
+        "nombre":"Cedrón",
+        "precio":100,
+        "img":"assets/img/cedron-400x400.jpg"
+    },
+    {
+        "id":"004",
+        "nombre":"Cola de Caballo",
+        "precio":100,
+        "img":"assets/img/cola-de-caballo-400x400.jpg"
+    },
+    {
+        "id":"005",
+        "nombre":"Melisa",
+        "precio":100,
+        "img":"assets/img/melisa-400x400.jpg"
+    },
+    {
+        "id":"006",
+        "nombre":"Tilo",
+        "precio":100,
+        "img":"assets/img/tilo-web-400x400.jpg"
     }
-    total = precioHierbas + total;
-    continuar = confirm("Desea continuar cargando productos?");
+]
+
+let carrito
+
+if(JSON.parse(localStorage.getItem("carrito")))  {
+    carrito = JSON.parse(localStorage.getItem('carrito'))
+} else {
+    localStorage.setItem('carrito', JSON.stringify([]))
+    carrito = JSON.parse(localStorage.getItem('carrito'))
 }
 
-alert("El precio total de su compra es: $" + total);
+//Función para desplegar esto en el DOM
+//Un for para recorrer nuestro array
 
-let botonCompra = document.getElementById ('botonCompra')
-botonCompra.textContent = 'Apreta el boton para finalizar la compra'
-botonCompra.style.color = '#04b71c'
+function desplegarProductos() {
+
+    for (let i = 0; i < hierbas.length; i++) {
+        const element = hierbas[i];
+        const { id, nombre, precio, img } = element
+        const card = `
+
+        <div class="card" style="width: 18rem;margin: 10px;">
+            <img src=${img} class="card-img-top">
+            <div class="card-body">
+            <h5 class="card-title">${nombre}</h5>
+            <p class="card-text">${precio}</p>
+            <a href="#" class="btn btn-primary">Agregar</a>
+            </div>
+        </div>
+
+        `
+        const container = document.getElementById("container")
+        container.innerHTML +=card
+    }
+}
+
+desplegarProductos()
+
+const btnAgregar = document.getElementsByClassName('btnAgregar')
+
+for (let i = 0; i < btnAgregar.length; i++) {
+    const element = btnAgregar[i];
+    element.addEventListener('click', agregarAlCarrito)
+}
 
 
-let button = document.createElement ('button')
-button.textContent= "Finalizar compra"
-document.append(button)
+function agregarAlCarrito(e) {
+    const btn = e.target;
+    const idBoton = btn.getAttribute('id')
+    const prodEncontrado = productos.find(prod => prod.id == idBoton)
+    const enCarrito = carrito.find(prod => prod.id == prodEncontrado.id)
+    if(!enCarrito) {
+        carrito.push({...prodEncontrado, cantidad: 1})
+    } else {
+        let carritoFiltrado = carrito.filter(prod => prod.id != enCarrito.id)
+        carrito = [...carritoFiltrado, {...enCarrito, cantidad: enCarrito.cantidad + 1}]
+    }
+    console.log(carrito)
+    localStorage.setItem('carrito', JSON.stringify(carrito))
+}
+
+const contador = document.getElementById('cartCounter')
+contador.innerHTML = carrito.length
