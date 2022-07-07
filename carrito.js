@@ -59,7 +59,7 @@ body.innerHTML += texto;
                 const { id, nombre, img, precio, cantidad } = element;
                 const cart = `
                 <tr id=${id}>
-                    <th><img class='trash' src='./multimedia/trash.png' alt='foto de borrar'></th>
+                    <th><img class='trash' src='./assets/img/trash3-fill.svg' alt='foto de borrar'></th>
                     <th class='detallesTabla'><img class='imgProdCart' src=${img} alt='foto del producto'><span class='nombreProd'>${nombre}</span></th>
                     <th>${cantidad}</th>
                     <th>$${(cantidad * precio).toLocaleString()}</th>

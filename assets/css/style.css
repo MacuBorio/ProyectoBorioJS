@@ -51,4 +51,8 @@ h1{
   .botonAgregar:hover {
     background: #00bd68;
   }
+
+  .trash {
+    width: 50px;
+  }
   
