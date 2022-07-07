@@ -61,7 +61,7 @@ function desplegarProductos() {
             <div class="card-body">
             <h5 class="card-title">${nombre}</h5>
             <p class="card-text">${precio}</p>
-            <a href="#" class="botonAgregar">Agregar</a>
+            <button id=${id} class='botonAgregar'>Agregar</button>
             </div>
         </div>
 
@@ -80,11 +80,10 @@ for (let i = 0; i < botonAgregar.length; i++) {
     element.addEventListener('click', agregarAlCarrito)
 }
 
-
 function agregarAlCarrito(e) {
     const btn = e.target;
     const idBoton = btn.getAttribute('id')
-    const prodEncontrado = productos.find(prod => prod.id == idBoton)
+    const prodEncontrado = hierbas.find(prod => prod.id == idBoton)
     const enCarrito = carrito.find(prod => prod.id == prodEncontrado.id)
     if(!enCarrito) {
         carrito.push({...prodEncontrado, cantidad: 1})
