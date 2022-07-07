@@ -61,7 +61,7 @@ function desplegarProductos() {
             <div class="card-body">
             <h5 class="card-title">${nombre}</h5>
             <p class="card-text">${precio}</p>
-            <a href="#" class="btn btn-primary">Agregar</a>
+            <a href="#" class="botonAgregar">Agregar</a>
             </div>
         </div>
 
@@ -73,10 +73,10 @@ function desplegarProductos() {
 
 desplegarProductos()
 
-const btnAgregar = document.getElementsByClassName('btnAgregar')
+const botonAgregar = document.getElementsByClassName('botonAgregar')
 
-for (let i = 0; i < btnAgregar.length; i++) {
-    const element = btnAgregar[i];
+for (let i = 0; i < botonAgregar.length; i++) {
+    const element = botonAgregar[i];
     element.addEventListener('click', agregarAlCarrito)
 }
 
