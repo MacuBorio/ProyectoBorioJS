@@ -77,8 +77,19 @@ const botonAgregar = document.getElementsByClassName('botonAgregar')
 
 for (let i = 0; i < botonAgregar.length; i++) {
     const element = botonAgregar[i];
-    element.addEventListener('click', agregarAlCarrito)
+    element.addEventListener('click', agregarAlCarrito);
+    element.addEventListener('click', () => {
+        Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: 'El item fue agregado a su carrito de compras',
+            showConfirmButton: false,
+            timer: 1500
+          })
+            })
 }
+
+
 
 function agregarAlCarrito(e) {
     const btn = e.target;

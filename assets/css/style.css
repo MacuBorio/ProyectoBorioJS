@@ -21,6 +21,16 @@ h1{
     margin-right: 25px;
 }
 
+.conteiner {
+    display: flex;
+    justify-content:space-between;
+}
+
+.card {
+    display: inline-block;
+    margin: 20px;
+}
+
 .botonAgregar {
     background-color: initial;
     background-image: linear-gradient(-180deg, #00D775, #00BD68);
